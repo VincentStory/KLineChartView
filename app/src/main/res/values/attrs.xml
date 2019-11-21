@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VariableImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+    </declare-styleable>
+
+
+
+
+    <declare-styleable name="PwdTextView">
+        <attr name="psw_size" format="dimension" />
+        <attr name="psw_color" format="color" />
+        <attr name="psw_count" format="integer" />
+        <attr name="psw_border_color" format="color" />
+    </declare-styleable>
+
+</resources>
