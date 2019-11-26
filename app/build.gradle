@@ -35,14 +35,9 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
-//            manifest.srcFile 'AndroidManifest.xml'
-//            java.srcDirs=['src']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-//            res.srcDirs=['res']
-            assets.srcDirs = ['assets']
+            java {
+                srcDir 'src/main/java'
+            }
 
         }
     }
@@ -68,6 +63,7 @@ dependencies {
     api rootProject.ext.dependencies.appcompatV7
     api rootProject.ext.dependencies.supportV4
     implementation project(':KLineChartLib')
+    implementation 'com.google.code.gson:gson:2.2.4'
 //    api rootProject.ext.dependencies.recyclerview
 //    api rootProject.ext.dependencies.cardView
 //    implementation rootProject.ext.dependencies.constraintLayout
