@@ -194,10 +194,13 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                if (x == event.getX()) {
-                    if (isLongPress) {
-                        isLongPress = false;
-                    }
+//                if (x == event.getX()) {
+//                    if (isLongPress) {
+//                        isLongPress = false;
+//                    }
+//                }
+                if (isLongPress) {
+                    isLongPress = false;
                 }
                 touch = false;
                 invalidate();

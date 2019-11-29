@@ -88,6 +88,7 @@ public class MainDraw implements IChartDraw<ICandle> {
 //        paint.setColor(ContextCompat.getColor(context, R.color.chart_line_background));
 //        LinearGradient linearGradient =new LinearGradient(0,0,0,300,ContextCompat.getColor(context, R.color.chart_line_whtie),ContextCompat.getColor(context, R.color.chart_line_background), Shader.TileMode.MIRROR);
 //        paint.setShader(linearGradient);
+
     }
 
     public void setStatus(Status status) {
@@ -376,10 +377,10 @@ public class MainDraw implements IChartDraw<ICandle> {
         ICandle point = (ICandle) view.getItem(index);
         List<String> strings = new ArrayList<>();
         strings.add(view.getAdapter().getDate(index));
-        strings.add("高:" + point.getHighPrice());
-        strings.add("低:" + point.getLowPrice());
-        strings.add("开:" + point.getOpenPrice());
-        strings.add("收:" + point.getClosePrice());
+        strings.add("高:" +   getValueFormatter().format(point.getHighPrice(), mDigit));
+        strings.add("开:" + getValueFormatter().format(point.getOpenPrice(), mDigit));
+        strings.add("低:" +   getValueFormatter().format(point.getLowPrice(), mDigit));
+        strings.add("收:" + getValueFormatter().format(point.getClosePrice(), mDigit));
 
         for (String s : strings) {
             width = Math.max(width, mSelectorTextPaint.measureText(s));

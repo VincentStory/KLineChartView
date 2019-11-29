@@ -16,18 +16,8 @@
             android:id="@+id/kLineChartView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_30" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp_30"
-            android:gravity="center"
-            android:paddingEnd="@dimen/dp_10"
-            android:text="数字资产金融期权"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/kLineChartView"
-            app:layout_constraintStart_toStartOf="@+id/kLineChartView"
-            app:layout_constraintTop_toBottomOf="@+id/kLineChartView" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycerView"
@@ -198,6 +188,31 @@
             android:layout_height="@dimen/dp_50"
             android:gravity="center"
             android:text="下单"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_rang"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:text="范围图"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:text="线性图"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/tv_candle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:text="k线图"
             android:textColor="@color/white" />
 
 

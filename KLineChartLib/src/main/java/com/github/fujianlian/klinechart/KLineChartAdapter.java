@@ -85,7 +85,7 @@ public class KLineChartAdapter extends BaseKLineChartAdapter {
         if (datas.size() < RANG_ITEM)
             return;
         datas.add(datas.size() - RANG_ITEM, entity);
-        DataHelper.calculateEndData(datas, choosePosition, type, entity.getOpenPrice());
+//        DataHelper.calculateEndData(datas, choosePosition, type, entity.getOpenPrice());
         DataHelper.calculate(datas);
 
     }
@@ -94,7 +94,7 @@ public class KLineChartAdapter extends BaseKLineChartAdapter {
         if (datas.size() > 0) {
             datas.set(datas.size() - RANG_ITEM-1, entity);
         }
-        DataHelper.calculateEndData(datas, choosePosition, type, entity.getOpenPrice());
+//        DataHelper.calculateEndData(datas, choosePosition, type, entity.getOpenPrice());
         DataHelper.calculate(datas);
     }
 

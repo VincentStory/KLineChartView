@@ -37,13 +37,13 @@ public class DataRequest {
 
     public static List<KLineEntity> getALL(Context context) {
         if (datas == null) {
-            String string = getStringFromAssert(context, "ibm.json");
-            Log.i("string==", string);
-//            final List<KLineEntity> data = new Gson().fromJson(getStringFromAssert(context, "ibm.json"), new TypeToken<List<KLineEntity>>() {
-//            }.getType());
+//            String string = getStringFromAssert(context, "ibm.json");
+//            Log.i("string==", string);
+            final List<KLineEntity> data = new Gson().fromJson(getStringFromAssert(context, "ibm.json"), new TypeToken<List<KLineEntity>>() {
+            }.getType());
 
-//            DataHelper.calculate(data);
-//            datas = data;
+            DataHelper.calculate(data);
+            datas = data;
         }
         return datas;
     }
