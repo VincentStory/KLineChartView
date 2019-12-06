@@ -13,14 +13,10 @@ android {
         multiDexEnabled true
 
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "x86"
         }
 
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "322e411bc4b1f88d62b76d38", //JPush 上注册的包名对应的 Appkey.
-                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-        ]
+
     }
     packagingOptions {
         doNotStrip '*/mips/*.so'
@@ -64,28 +60,7 @@ dependencies {
     api rootProject.ext.dependencies.supportV4
     implementation project(':KLineChartLib')
     implementation 'com.google.code.gson:gson:2.2.4'
-//    api rootProject.ext.dependencies.recyclerview
-//    api rootProject.ext.dependencies.cardView
-//    implementation rootProject.ext.dependencies.constraintLayout
-    //网络相关
-//    implementation rootProject.ext.dependencies.retrofit
-//    implementation rootProject.ext.dependencies.converterGson
-//    implementation rootProject.ext.dependencies.adapterRxjava
-//    implementation rootProject.ext.dependencies.rxjava
-//    implementation rootProject.ext.dependencies.rxandroid
-//    implementation rootProject.ext.dependencies.okhttpInterceptor
-
-    //头部广告轮播https://github.com/youth5201314/banner
-//    implementation rootProject.ext.dependencies.youthBanner
-//    implementation rootProject.ext.dependencies.tagView
+    implementation 'com.jakewharton:butterknife:8.5.1'
     implementation rootProject.ext.dependencies.baseAdater
-
-//    implementation rootProject.ext.dependencies.easypermissions
-//    implementation rootProject.ext.dependencies.statusbaruitl
-//    implementation rootProject.ext.dependencies.glide
-//    implementation rootProject.ext.dependencies.compressHelper
-//    implementation rootProject.ext.dependencies.EvenBus
-//    implementation rootProject.ext.dependencies.butterknife
-//    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
 
 }

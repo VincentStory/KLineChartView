@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import butterknife.OnClick;
+
 import static com.github.fujianlian.klinechart.utils.Constants.CANDLE_TYPE;
 import static com.github.fujianlian.klinechart.utils.Constants.LINE_TYPE;
 import static com.github.fujianlian.klinechart.utils.Constants.RANG_ITEM;
@@ -32,9 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private KLineChartView kLineChartView;
 
-    private RecyclerView mRecyclerView;
 
-    private TextView mTvRang, mTvLine, mTvCandle;
+//    private TextView mTvRang, mTvLine, mTvCandle, mTvMa, mTvBoll, mTvMacd, mTvKdj, mTvRsi, mTvVol, mTvClear;
 
     private List<KLineEntity> datas;//模拟历史数据
 
@@ -42,13 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     protected KLineChartAdapter adapter = new KLineChartAdapter();
 
-    protected DateCycleAdapter dateCycleAdapter;
 
     private int position = 6;//默认关闭子view
 
-    protected List<DataBean> dataBeanList = new ArrayList<>();//时间周期集合
-
-    protected String[] cycleDate = new String[]{"1m", "5m", "15m", "30m", "60m", "1D", "1W", "1M"};
 
     private Timer timer = new Timer();//当前时间刷新
 
@@ -62,17 +59,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         kLineChartView = findViewById(R.id.kLineChartView);
-        mRecyclerView = findViewById(R.id.recycerView);
-        mTvRang = findViewById(R.id.tv_rang);
-        mTvLine = findViewById(R.id.tv_line);
-        mTvCandle = findViewById(R.id.tv_candle);
+//        mTvRang = findViewById(R.id.tv_rang);
+//        mTvLine = findViewById(R.id.tv_line);
+//        mTvCandle = findViewById(R.id.tv_candle);
+//        mTvMa = findViewById(R.id.tv_ma);
+//        mTvBoll = findViewById(R.id.tv_boll);
+//        mTvMacd = findViewById(R.id.tv_macd);
+//        mTvKdj = findViewById(R.id.tv_kdj);
+//        mTvRsi = findViewById(R.id.tv_rsi);
+//        mTvVol = findViewById(R.id.tv_vol);
+//        mTvClear = findViewById(R.id.tv_clear);
 
         kLineChartView.setAdapter(adapter);
         kLineChartView.justShowLoading();
 
-        mTvRang.setOnClickListener(this);
-        mTvLine.setOnClickListener(this);
-        mTvCandle.setOnClickListener(this);
+//        mTvRang.setOnClickListener(this);
+//        mTvLine.setOnClickListener(this);
+//        mTvCandle.setOnClickListener(this);
+//        mTvMa.setOnClickListener(this);
+//        mTvBoll.setOnClickListener(this);
+//        mTvMacd.setOnClickListener(this);
+//        mTvKdj.setOnClickListener(this);
+//        mTvVol.setOnClickListener(this);
+//        mTvClear.setOnClickListener(this);
 
         datas = DataRequest.getALL(MainActivity.this).subList(0, 500);
         newDatas.addAll(datas);
@@ -88,9 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         setChildDraw(6);
-
-        initDateView(0);
-
 
         refreshData();
 
@@ -123,34 +129,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, 1000, 1000);
     }
 
-    private void initDateView(int choosePosition) {
-//        mPeriods = getPeriods(currentType);
-//        if (choosePosition >= mPeriods.length)
-//            return;
-//        period = mPeriods[choosePosition];
-        GridLayoutManager manager = new GridLayoutManager(MainActivity.this, 8);
-
-        dataBeanList.clear();
-        for (int i = 0; i < cycleDate.length; i++) {
-            DataBean dataBean = new DataBean();
-            if (i == choosePosition) dataBean.setSelected(true);
-            dataBean.setData(cycleDate[i]);
-            dataBean.setPosition(i);
-            dataBeanList.add(dataBean);
-        }
-
-        // 设置布局管理器
-        mRecyclerView.setLayoutManager(manager);
-
-        dateCycleAdapter = new DateCycleAdapter(MainActivity.this, R.layout.item_tv_layout, dataBeanList);
-        dateCycleAdapter.setListener((period, position) ->
-        {
-//            setSymbolAndPeriod(getCurrencyInfo(), position);
-        });
-
-        mRecyclerView.setAdapter(dateCycleAdapter);
-
-    }
 
     /**
      * 显示底部k线view和MA BOLL SAR
@@ -189,7 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
+    @OnClick({R.id.tv_rang, R.id.tv_line, R.id.tv_candle, R.id.tv_ma, R.id.tv_boll, R.id.tv_macd
+            , R.id.tv_kdj, R.id.tv_rsi, R.id.tv_vol, R.id.tv_clear})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_rang:
@@ -200,6 +179,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tv_candle:
                 setKlineType(CANDLE_TYPE);
+                break;
+            case R.id.tv_ma:
+                setChildDraw(0);
+                break;
+            case R.id.tv_boll:
+                setChildDraw(1);
+                break;
+            case R.id.tv_macd:
+                setChildDraw(2);
+                break;
+            case R.id.tv_kdj:
+                setChildDraw(3);
+                break;
+            case R.id.tv_rsi:
+                setChildDraw(4);
+                break;
+            case R.id.tv_vol:
+                setChildDraw(5);
+                break;
+            case R.id.tv_clear:
+                setChildDraw(6);
                 break;
         }
     }
