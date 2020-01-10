@@ -51,6 +51,11 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
                          
                 setChildDraw(Constants.CLEAR);
  ```
+-----------------------完成--------------------
+
+有遇到其他问题可以加我qq进行沟通
+ QQ：459005147 备注：android交流
+
 
 
 
