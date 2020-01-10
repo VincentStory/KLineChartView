@@ -61,6 +61,7 @@ dependencies {
     implementation project(':KLineChartLib')
     implementation 'com.google.code.gson:gson:2.2.4'
     implementation 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation rootProject.ext.dependencies.baseAdater
 
 }

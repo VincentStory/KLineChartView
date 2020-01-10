@@ -2,12 +2,14 @@ package com.vincent.story;
 
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -22,7 +24,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 import static com.github.fujianlian.klinechart.utils.Constants.CANDLE_TYPE;
 import static com.github.fujianlian.klinechart.utils.Constants.LINE_TYPE;
@@ -30,12 +34,9 @@ import static com.github.fujianlian.klinechart.utils.Constants.RANG_ITEM;
 import static com.github.fujianlian.klinechart.utils.Constants.RANG_TYPE;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private KLineChartView kLineChartView;
-
-
-//    private TextView mTvRang, mTvLine, mTvCandle, mTvMa, mTvBoll, mTvMacd, mTvKdj, mTvRsi, mTvVol, mTvClear;
 
     private List<KLineEntity> datas;//模拟历史数据
 
@@ -43,45 +44,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     protected KLineChartAdapter adapter = new KLineChartAdapter();
 
-
     private int position = 6;//默认关闭子view
 
+    private Unbinder mBinder;
 
     private Timer timer = new Timer();//当前时间刷新
 
     private int mSecond = 0;//秒数
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
+        mBinder = ButterKnife.bind(this);
         kLineChartView = findViewById(R.id.kLineChartView);
-//        mTvRang = findViewById(R.id.tv_rang);
-//        mTvLine = findViewById(R.id.tv_line);
-//        mTvCandle = findViewById(R.id.tv_candle);
-//        mTvMa = findViewById(R.id.tv_ma);
-//        mTvBoll = findViewById(R.id.tv_boll);
-//        mTvMacd = findViewById(R.id.tv_macd);
-//        mTvKdj = findViewById(R.id.tv_kdj);
-//        mTvRsi = findViewById(R.id.tv_rsi);
-//        mTvVol = findViewById(R.id.tv_vol);
-//        mTvClear = findViewById(R.id.tv_clear);
 
         kLineChartView.setAdapter(adapter);
         kLineChartView.justShowLoading();
 
-//        mTvRang.setOnClickListener(this);
-//        mTvLine.setOnClickListener(this);
-//        mTvCandle.setOnClickListener(this);
-//        mTvMa.setOnClickListener(this);
-//        mTvBoll.setOnClickListener(this);
-//        mTvMacd.setOnClickListener(this);
-//        mTvKdj.setOnClickListener(this);
-//        mTvVol.setOnClickListener(this);
-//        mTvClear.setOnClickListener(this);
 
         datas = DataRequest.getALL(MainActivity.this).subList(0, 500);
         newDatas.addAll(datas);
@@ -104,6 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mBinder.unbind();
+    }
+
     /**
      * 每秒刷新一次数据 ，每5秒新增一条数据
      */
@@ -111,8 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if (mSecond + RANG_ITEM + 1 >= newDatas.size())
-                    return;
+                if (mSecond + RANG_ITEM + 1 >= newDatas.size()) {
+                    mSecond = 0;
+                }
                 KLineEntity kLineEntity = newDatas.get(newDatas.size() - mSecond - RANG_ITEM - 1);
                 mSecond++;
                 if (mSecond % 5 == 0) {
@@ -149,8 +137,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hideChildView();
             }
 
-
         }
+        adapter.notifyDataSetChanged();
     }
 
     public void hideChildView() {
@@ -165,7 +153,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (kLineChartView != null) {
             kLineChartView.setKlineType(klineType);
         }
+        adapter.notifyDataSetChanged();
+
     }
+
 
     @OnClick({R.id.tv_rang, R.id.tv_line, R.id.tv_candle, R.id.tv_ma, R.id.tv_boll, R.id.tv_macd
             , R.id.tv_kdj, R.id.tv_rsi, R.id.tv_vol, R.id.tv_clear})
