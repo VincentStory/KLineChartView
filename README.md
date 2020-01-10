@@ -25,6 +25,7 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 ```
 ### 2.添加数据并刷新view
 ```
+ datas = DataRequest.getALL(MainActivity.this).subList(0, 500);
  adapter.addFooterData(datas);
         adapter.notifyDataSetChanged();
 
@@ -51,6 +52,8 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
                          
                 setChildDraw(Constants.CLEAR);
  ```
+ ### 4.如有其他特定需求，需在BaseKLineChartView改写代码完成逻辑计算，和绘制特定效果
+ 
 -----------------------完成--------------------
 
 有遇到其他问题可以加我qq进行沟通
