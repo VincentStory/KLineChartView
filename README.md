@@ -8,7 +8,7 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 
 ## 效果预览 
 
-### 范围图，线性图切换加各种指标线展示
+### 范围图，线性图切换加各种指标线展示,自定义显示和隐藏VOL指标
 
 ![效果图](https://github.com/VincentStory/KLineChartView/blob/master/IMG_4115.GIF)
 
@@ -23,6 +23,34 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 </com.github.tifezh.kchartlib.chart.KChartView>
   
 ```
+### 2.添加数据并刷新view
+```
+ adapter.addFooterData(datas);
+        adapter.notifyDataSetChanged();
+
+        if (kLineChartView != null) {
+            kLineChartView.startAnimation();
+            kLineChartView.refreshEnd();
+            kLineChartView.hideChildDraw();
+        }
+  ```
+ ### 3.显示和隐藏指标线
+ 
+  ```
+                setChildDraw(Constants.MA);
+              
+                setChildDraw(Constants.BOLL);
+              
+                setChildDraw(Constants.MACD);
+             
+                setChildDraw(Constants.KDJ);
+             
+                setChildDraw(Constants.RSI);
+              
+                setChildDraw(Constants.VOL);
+                         
+                setChildDraw(Constants.CLEAR);
+ ```
 
 
 
