@@ -3,35 +3,36 @@ package com.github.fujianlian.klinechart.utils;
 public class Constants {
 
 
-    //    public static final String socketAddress = "ws://139.196.89.20:9002/ws/websocket";
-//    public static final String socketAddress =  "ws://47.52.138.51:9001/ws/websocket";
-//    public static final String socketAddress = "wss://stream.bctex-global.com/ws/websocket";
-    public static final String socketAddress = "wss://stream.dcf-globe.com/ws/websocket";
-//    public static final String socketAddress = "ws://192.168.0.108:9002/ws/websocket";
-
-    //k线
-    public static final String klineUrl = "/market/"; // "/market/BTC/USDT/1"
-    public static final String klineHistoryUrl = "/user/";//  '/user/admin/history/kline'
-    public static final String reqKlineHistoryUrl = "/req/history/kline/"; // "/req/history/kline/admin/BTC/USDT/1/1"
-    //货币对
-    public static final String bolUrl = "/market/trade"; // '/market/trade'
-    public static final String bolHistoryUrl = "/user/"; // '/user/admin/history/trade'
-    public static final String reqBolHistoryUrl = "/req/history/trade/List/"; // "/req/history/trade/List/admin"
-    //系统最新时间
-    public static final String dateUrl = "/market/date"; // '/market/trade'
-
-    //持仓订单
-    public static final String orderUrl = "/user/"; // '/user/{userId}/market/holdpositions/{type}'
-    public static final String orderHistoryUrl = "/user/"; // '/user/{userId}/history/holdpositions'
-    public static final String reqOrderHistoryUrl = "/req/history/holdpositions/"; // "/req/history/holdpositions/{userId}/{type}"   type 为1是虚拟，2是真实，3.是量化
-
-    //结束订单
-    public static final String finishOrderUrl = "/user/"; ///user/{userId}/market/cover/{1.虚拟，2.真实}
-
-    //账户
-    public static final String accountUrl = "/user/";//"/user/{userId}/market/account"  账户推送接口
-    public static final String reqAccountUrl = "/req/history/account/";//"/req/history/account/{userId}" 获取历史账户
-
+    /**
+     * case R.id.tv_ma:
+     *                 setChildDraw(0);
+     *                 break;
+     *             case R.id.tv_boll:
+     *                 setChildDraw(1);
+     *                 break;
+     *             case R.id.tv_macd:
+     *                 setChildDraw(2);
+     *                 break;
+     *             case R.id.tv_kdj:
+     *                 setChildDraw(3);
+     *                 break;
+     *             case R.id.tv_rsi:
+     *                 setChildDraw(4);
+     *                 break;
+     *             case R.id.tv_vol:
+     *                 setChildDraw(5);
+     *                 break;
+     *             case R.id.tv_clear:
+     *                 setChildDraw(6);
+     *                 break;
+     */
+    public static final int MA = 0;
+    public static final int BOLL = 1;
+    public static final int MACD = 2;
+    public static final int KDJ = 3;
+    public static final int RSI = 4;
+    public static final int VOL = 5;
+    public static final int CLEAR = 6;
 
     public static String CURRENT_LINE_TYPE = "RANG_TYPE";
     public static final String RANG_TYPE = "RANG_TYPE";

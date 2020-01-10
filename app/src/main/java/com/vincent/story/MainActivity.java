@@ -17,6 +17,7 @@ import com.github.fujianlian.klinechart.KLineChartAdapter;
 import com.github.fujianlian.klinechart.KLineChartView;
 import com.github.fujianlian.klinechart.KLineEntity;
 import com.github.fujianlian.klinechart.draw.Status;
+import com.github.fujianlian.klinechart.utils.Constants;
 import com.vincent.story.adapter.DateCycleAdapter;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static com.github.fujianlian.klinechart.utils.Constants.BOLL;
 import static com.github.fujianlian.klinechart.utils.Constants.CANDLE_TYPE;
 import static com.github.fujianlian.klinechart.utils.Constants.LINE_TYPE;
 import static com.github.fujianlian.klinechart.utils.Constants.RANG_ITEM;
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             kLineChartView.hideChildDraw();
         }
 
-        setChildDraw(6);
+        setChildDraw(Constants.CLEAR);
 
         refreshData();
 
@@ -126,11 +128,11 @@ public class MainActivity extends AppCompatActivity {
     public void setChildDraw(int position) {
         this.position = position;
         if (kLineChartView != null) {
-            if (position == 0) {
+            if (position == Constants.MA) {
                 kLineChartView.changeMainDrawType(Status.MA);
-            } else if (position == 1) {
+            } else if (position == Constants.BOLL) {
                 kLineChartView.changeMainDrawType(Status.BOLL);
-            } else if (position != 6) {
+            } else if (position != Constants.CLEAR) {
                 position -= 2;
                 kLineChartView.setChildDraw(position);
             } else {
@@ -149,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setKlineType(String klineType) {
-//        lineType = type;
         if (kLineChartView != null) {
             kLineChartView.setKlineType(klineType);
         }
@@ -172,25 +173,25 @@ public class MainActivity extends AppCompatActivity {
                 setKlineType(CANDLE_TYPE);
                 break;
             case R.id.tv_ma:
-                setChildDraw(0);
+                setChildDraw(Constants.MA);
                 break;
             case R.id.tv_boll:
-                setChildDraw(1);
+                setChildDraw(Constants.BOLL);
                 break;
             case R.id.tv_macd:
-                setChildDraw(2);
+                setChildDraw(Constants.MACD);
                 break;
             case R.id.tv_kdj:
-                setChildDraw(3);
+                setChildDraw(Constants.KDJ);
                 break;
             case R.id.tv_rsi:
-                setChildDraw(4);
+                setChildDraw(Constants.RSI);
                 break;
             case R.id.tv_vol:
-                setChildDraw(5);
+                setChildDraw(Constants.VOL);
                 break;
             case R.id.tv_clear:
-                setChildDraw(6);
+                setChildDraw(Constants.CLEAR);
                 break;
         }
     }
