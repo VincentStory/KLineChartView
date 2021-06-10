@@ -4,7 +4,7 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 
 本项目是在 https://github.com/fujianlian/KLineChart 基础上进行修改的，对UI展示进行了修改。
 
-本项目模拟了socket实时推送数据效果
+本项目模拟了socket实时推送数据效果，如果项目要使用StompProtocol可以参考我另外一个项目：https://github.com/VincentStory/StompForAndroid ，有具体的接入过程
 
 ## 效果预览 
 
