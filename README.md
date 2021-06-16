@@ -8,7 +8,7 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 
 ## 效果预览 
 
-### 范围图，线性图切换加各种指标线展示,自定义显示和隐藏VOL指标
+### 效果图中包括范围图，线性图，柱状图随意切换，以及各种指标线展示,自定义显示和隐藏VOL指标
 
 ![效果图](https://github.com/VincentStory/KLineChartView/blob/master/IMG_4115.GIF)
 
