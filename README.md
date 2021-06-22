@@ -58,6 +58,21 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 
 如果对你有所帮助的话，欢迎Star或者Fork,有遇到其他问题可以加我vx进行沟通
  QQ：459005147 备注：android交流
+ 
+ 
+Copyright 2018 VincentStory
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 
 
