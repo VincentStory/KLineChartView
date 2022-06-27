@@ -11,17 +11,17 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 ### 效果图中包括范围图，线性图，柱状图随意切换，以及各种指标线展示,自定义显示和隐藏VOL指标
 
 ![效果图](https://github.com/VincentStory/KLineChartView/blob/master/IMG_4115.GIF)
-(https://github.com/VincentStory/KLineChartView/blob/master/img1.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img1.jpg)
 
-(https://github.com/VincentStory/KLineChartView/blob/master/img2.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img2.jpg)
 
-(https://github.com/VincentStory/KLineChartView/blob/master/img3.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img3.jpg)
 
-(https://github.com/VincentStory/KLineChartView/blob/master/img4.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img4.jpg)
 
-(https://github.com/VincentStory/KLineChartView/blob/master/img5.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img5.jpg)
 
-(https://github.com/VincentStory/KLineChartView/blob/master/img6.jpg)
+![截图](https://github.com/VincentStory/KLineChartView/blob/master/img6.jpg)
 
 ## 引入项目流程
 
