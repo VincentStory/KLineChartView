@@ -12,8 +12,6 @@ Android仿IQ Option K线图实现（包含MA,BOLL,MACD,KDJ,RSI,VOL指标）
 
 ![效果图](https://github.com/VincentStory/KLineChartView/blob/master/IMG_4115.GIF)
 ![截图](https://github.com/VincentStory/KLineChartView/blob/master/img1.jpg)
-![截图](https://github.com/VincentStory/KLineChartView/blob/master/img2.jpg)
-
 
 ## 引入项目流程
 
